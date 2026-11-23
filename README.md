@@ -3,7 +3,7 @@
 An interactive virtual pet care application built with **React**, **TypeScript**, and **Vite** for my Chingu Tier 2 Solo Project.
 
 ## 🔗 Live Demo
-[View Live App](YOUR_VERCEL_LINK_HERE)
+[View Live App]https://digital-pet-app-delta.vercel.app/
 
 ## ✨ Features
 - **Pet Customization:** Choose between a Dragon, Dog, or Cat and give your companion a custom name.
