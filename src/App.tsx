@@ -23,10 +23,18 @@ const SPECIES_ICONS: Record<PetSpecies, { happy: string; neutral: string; hungry
 
 export function App() {
   // Load saved pet from localStorage if available
-  const [pet, setPet] = useState<Pet | null>(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    return saved ? JSON.parse(saved) : null;
-  });
+const [pet, setPet] = useState<Pet | null>(() => {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (!saved) return null;
+
+  try {
+    return JSON.parse(saved) as Pet;
+  } catch (error) {
+    console.error('Failed to parse saved pet data:', error);
+    localStorage.removeItem(STORAGE_KEY); // Clean up the broken data
+    return null;
+  }
+});
 
   const [nameInput, setNameInput] = useState<string>('');
   const [speciesInput, setSpeciesInput] = useState<PetSpecies>('Dragon');
