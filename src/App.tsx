@@ -58,7 +58,7 @@ export function App() {
     }, 4000);
 
     return () => clearInterval(timer);
-  }, [pet]);
+  }, [Boolean (pet)]);
 
   const handleAdopt = (e: React.FormEvent) => {
     e.preventDefault();
